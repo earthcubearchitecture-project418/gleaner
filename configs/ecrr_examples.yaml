@@ -1,0 +1,35 @@
+---
+minio:
+  address: localhost
+  port: 9000
+  accesskey: AKIAIOSFODNN7EXAMPLE
+  secretkey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+  ssl: false
+gleaner:
+  runid: r1  # this will be the bucket the output is placed in...
+  summon: false # do we want to visit the web sites and pull down the files
+  mill: true
+context:
+  cache: true
+contextmaps:
+- prefix: "https://schema.org/"
+  file: "docs/jsonldcontext.json"
+- prefix: "http://schema.org/"
+  file: "docs/jsonldcontext.json"
+- prefix: "https://schema.org"
+  file: "docs/jsonldcontext.json"
+- prefix: "http://schema.org"
+  file: "docs/jsonldcontext.json"
+summoner:
+  mode: diff  # [time, hash, none] diff: look for difference or full: delete old objects and replace
+millers:
+  graph: true
+  shacl: true
+  prov: false
+sources:
+- name: ecrr_examples
+  logo: http://geodex.org/images/logos/EarthCubeLogo.png
+  url: https://raw.githubusercontent.com/earthcubearchitecture-ecresourcereg/infomodel/gleaner/examples/html_gleaner/sitemap.xml
+  headless: false
+  # url not used. Unsummoned jsonld can be placed at gleaner_summoned/ecrr_examples
+

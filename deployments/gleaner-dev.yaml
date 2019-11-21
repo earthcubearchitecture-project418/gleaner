@@ -1,5 +1,7 @@
 version: '3'
 
+# this is run from go/src/earthube.org/Project418/gleaner/deployments
+
 services:
   tika:
     image: logicalspark/docker-tikaserver
@@ -21,8 +23,8 @@ services:
        #- MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
        #- MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
     volumes:
-     - "$DATAVOL/s3/data:/data"
-     - "$DATAVOL/s3/config:/root/.minio"
+     - ${DATAVOL}/s3/data:/data
+     - ${DATAVOL}/s3/config:/root/.minio
     networks:
       - web
     command: ["server", "/data"]
@@ -56,7 +58,7 @@ services:
     ports:
        - "3030:3030"
     volumes:
-       - $DATAVOL/jena/data:/data
+       - ${DATAVOL}/jena/data:/data
     networks:
        - web
 
@@ -69,7 +71,7 @@ services:
     environment:
      - SERVICE_PORTS=9851
     volumes:
-      - "${DATAVOL}/spatialindex:/data"
+      - ${DATAVOL}/spatialindex:/data
     networks:
       - web
 

@@ -1,0 +1,25 @@
+version: '3'
+# this is run from go/src/earthube.org/Project418/gleaner/deployments
+# modify windows.env to match your data setup
+#   eg folder with the name: DATAVOL=d:/dev_earthcube/p418/dataVolumes
+# docker-compose -f .\gleaner-dev.yaml -f .\gleaner-dev.windows.yaml up
+
+services:
+
+  minio:
+    env_file:
+     - ./windows.env
+    volumes:
+     - "${DATAVOL}/s3/data:/data"
+     - "${DATAVOL}/s3/config:/root/.minio"
+
+
+  jena:
+    env_file:
+     - ./windows.env
+
+
+  tile38:
+    env_file:
+     - ./windows.env
+
