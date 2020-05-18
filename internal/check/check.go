@@ -35,7 +35,7 @@ func Buckets(mc *minio.Client) error {
 			return fmt.Errorf("Unable to locate required bucket.  Did you run with -setup the first time? Missing bucket: %s", bl[i])
 		}
 		if found {
-			log.Printf("Verfied Gleaner bucket: %s.\n", bl[i])
+			log.Printf("Verified Gleaner bucket: %s.\n", bl[i])
 		}
 	}
 

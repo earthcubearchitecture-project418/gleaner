@@ -12,7 +12,7 @@ If you are interested in publishing this sort of data, take a look at the ESIP h
 
 ### Docker 
 
-To start this guide you will need a few things first.  One is a computer with Docker installed.  Docker is a popular tool for creating and using containers.  Containers are packaged applications like databases, games or web servers.  The Docker runtime providers a cross platform environment to run this common container images.  Images are downloaded from the net and can be maintained and updated.  Containers can be run in large cloud based environments with sophisticated orchestration systems or on your local computer.  For this example we will be running on a rather simple Linux based server provided by NSF's XSEDE environment.  However, any personal computer will do just fine.   You can download Docekr your PC or Mac at https://www.docker.com/products/docker-desktop and Linux users can typically just use your distro's package management system.
+To start this guide you will need a few things first.  One is a computer with Docker installed.  Docker is a popular tool for creating and using containers.  Containers are packaged applications like databases, games or web servers.  The Docker runtime providers a cross platform environment to run this common container images.  Images are downloaded from the net and can be maintained and updated.  Containers can be run in large cloud based environments with sophisticated orchestration systems or on your local computer.  For this example we will be running on a rather simple Linux based server provided by NSF's XSEDE environment.  However, any personal computer will do just fine.   You can download Docker your PC or Mac at https://www.docker.com/products/docker-desktop and Linux users can typically just use your distro's package management system.
 
 Once you have Docker installed and verified its operation you will need to download the Gleaner "Stater Pack".  Reference the Gleaner releases at https://github.com/earthcubearchitecture-project418/gleaner/releases to download the needed files for this guide.   In particular the starterpack.zip located in the assets section of the releases.   
 
@@ -118,7 +118,7 @@ This file contains the instructions Docker will use to download and run the vari
 
 ### Getting the images
 
-The first thing we can do is download the images we will need.  You do not need to do this separately, issueing the run command in Docker will check for and download any required images.  For this document, however, let's do it as a special command.   Note, you only need to download an image once, it will then been stored local to your system as an image and will run from there.  Later you can check for new versions or updates too.   If we look at our images we might not see anything if this is a new system with Docker.  
+The first thing we can do is download the images we will need.  You do not need to do this separately, issuing the run command in Docker will check for and download any required images.  For this document, however, let's do it as a special command.   Note, you only need to download an image once, it will then been stored local to your system as an image and will run from there.  Later you can check for new versions or updates too.   If we look at our images we might not see anything if this is a new system with Docker.  
 
 ```bash
 root@gleaner:~/gleanerRuns/staterpack# docker images
@@ -318,9 +318,9 @@ my-vol
 main.go:37: EarthCube Gleaner
 main.go:103: Validating access to object store
 main.go:110: Validating access to needed buckets
-check.go:37: Verfied Gleaner bucket: gleaner.
-check.go:37: Verfied Gleaner bucket: gleaner-summoned.
-check.go:37: Verfied Gleaner bucket: gleaner-milled.
+check.go:37: Verified Gleaner bucket: gleaner.
+check.go:37: Verified Gleaner bucket: gleaner-summoned.
+check.go:37: Verified Gleaner bucket: gleaner-milled.
 summoner.go:16: Summoner start time: 2019-11-06 14:12:46.636899634 +0000 UTC m=+0.025597505
 resources.go:35: Parsing sitemap: http://opencoredata.org/sitemap.xml
 sitemaps.go:49: Content type of sitemap reference is text/xml; charset=utf-8
@@ -349,7 +349,7 @@ Once Gleaner is done and if everything has gone OK the results will be written t
 
 The easiest way by far would be to access the Minio server via your web browser.  If you are running the Gleaner setup local this should work fine.  However, if you are running remotely you may or may not have access to the port 9000 that Minio is running on.  
 
-If you do, simply point your browser at http://localhost;9000 (assuming the same, local, machine here).  
+If you do, simply point your browser at http://localhost:9000 (assuming the same, local, machine here).  
 
 The login screen will look like:
 
@@ -410,7 +410,7 @@ The "Good triples" file can then be used in any RDF or RDF compatible triple sto
 
 ### Other tools
 
-If you already use other tools to interact with S3 compiant object stores you can use them with minio as well.  These would be things like s3tools (python) or CyberDuck (Mac and Windows).  Since it's an S3 API, there are even ways you can mount Minio to your file system and view the buckets and simple folders on your machine.  
+If you already use other tools to interact with S3 compliant object stores you can use them with minio as well.  These would be things like s3tools (python) or CyberDuck (Mac and Windows).  Since it's an S3 API, there are even ways you can mount Minio to your file system and view the buckets and simple folders on your machine.  
 
 ## **Load to a triple store and query** 
 
@@ -441,6 +441,3 @@ Using something like Jena and SPARQL you could build out APIs or interfaces like
 ## Conclusion
 
 This concludes the Gleaner walk through.  The goal was to go from nothing to a semantic network.  Gleaner is still in development as are these documentations.  Any issues, suggestions or edits you have are more than welcome and you are encouraged to use the GitHub issue system to provide them.  
-
-
-
